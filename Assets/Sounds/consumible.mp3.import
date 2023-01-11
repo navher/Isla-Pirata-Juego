@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/consumible.mp3-d98e01e4bee32d7c0e63510aab92dc3a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/consumible.mp3"
+dest_files=[ "res://.import/consumible.mp3-d98e01e4bee32d7c0e63510aab92dc3a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
