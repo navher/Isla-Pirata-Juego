@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Star/Run/Run 02.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Star/Run/Run 03.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Star/Run/Run 04.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Star/Run/Run 05.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Star/Run/Run 01.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Star/Run/Run 06.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/enemy2.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.5, 14.375 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6.50001, 8.71429 )
+
+[node name="enemy2" type="KinematicBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Run"
+frame = 3
+playing = true
+
+[node name="FloorDetection" type="RayCast2D" parent="AnimatedSprite"]
+position = Vector2( -12, -10 )
+enabled = true
+cast_to = Vector2( 0, 30 )
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1, 1.5 )
+scale = Vector2( 2, 0.8 )
+shape = SubResource( 2 )
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -20, 0 )
+collision_mask = 4
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 4
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0.5, 2.71427 )
+scale = Vector2( 0.999998, 0.999998 )
+shape = SubResource( 3 )

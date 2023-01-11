@@ -1,0 +1,225 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://Assets/Sounds/music.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Scenes/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Letters/I-pixel-u.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/BackgroundMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/01-Idle/Idle 04.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/01-Idle/Idle 03.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/01-Idle/Idle 02.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/01-Idle/Idle 01.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/01-Idle/Idle 05.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/02-Run/Run 02.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/02-Run/Run 04.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/02-Run/Run 01.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/02-Run/Run 03.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/02-Run/Run 05.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Characters/Pirate/02-Run/Run 06.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 01.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 06.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 07.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 08.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 09.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 05.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 02.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 03.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/01-Idle/Idle 04.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/02-Run/Run 01.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/02-Run/Run 04.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/02-Run/Run 02.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/02-Run/Run 06.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/02-Run/Run 03.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sprites/Characters/Enemies/Crabby/02-Run/Run 05.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Sounds/click.mp3" type="AudioStream" id=31]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.121569 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 80
+outline_size = 6
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.996094, 0.216908, 0.216908, 1 )
+
+[sub_resource type="Theme" id=8]
+/styles/colorButton = SubResource( 14 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.823529, 0.458824, 0.235294, 1 )
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.854902, 0.427451, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.917647, 0.533333, 0.298039, 1 )
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.854902, 0.427451, 0.160784, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.854902, 0.427451, 0.160784, 1 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "IdleMenu",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "RunMenu",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "IdleEnemyMenu",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "RunEnemyMenu",
+"speed": 8.0
+} ]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_constants/separation = 80
+
+[node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 944.0
+margin_bottom = 100.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "ISLA PIRATA"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 180.0
+margin_right = 944.0
+margin_bottom = 374.0
+
+[node name="VBoxBotones" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
+margin_left = 354.0
+margin_right = 589.0
+margin_bottom = 194.0
+grow_horizontal = 2
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Jugar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones"]
+margin_right = 235.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( -755, 44 )
+theme = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 10 )
+text = "    JUGAR    "
+
+[node name="Salir" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones"]
+margin_top = 78.0
+margin_right = 235.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( -755, 44 )
+theme = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 10 )
+text = "SALIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Creditos" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones"]
+margin_top = 156.0
+margin_right = 235.0
+margin_bottom = 194.0
+rect_pivot_offset = Vector2( -755, 44 )
+theme = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/normal = SubResource( 10 )
+text = "CRÉDITOS"
+
+[node name="BackgroundMenu" parent="." instance=ExtResource( 4 )]
+
+[node name="PirateAnimation2" type="AnimatedSprite" parent="BackgroundMenu"]
+position = Vector2( 185, 431 )
+scale = Vector2( 8, 8 )
+frames = SubResource( 15 )
+animation = "IdleMenu"
+frame = 2
+playing = true
+
+[node name="EnemyAnimation2" type="AnimatedSprite" parent="BackgroundMenu"]
+position = Vector2( 807, 453 )
+scale = Vector2( 6, 6 )
+frames = SubResource( 16 )
+animation = "IdleEnemyMenu"
+frame = 6
+playing = true
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource( 1 )
+volume_db = -20.0
+
+[node name="Hover" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource( 31 )
+volume_db = -20.0
+
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones/Jugar" to="." method="_on_Jugar_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones/Jugar" to="." method="_on_Jugar_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones/Salir" to="." method="_on_Salir_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones/Salir" to="." method="_on_Salir_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones/Creditos" to="." method="_on_Creditos_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/VBoxBotones/Creditos" to="." method="_on_Creditos_pressed"]

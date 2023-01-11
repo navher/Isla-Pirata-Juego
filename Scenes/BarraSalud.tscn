@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Sprites/Life Bar/red.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Life Bar/green.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Life Bar/barra.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/BarraSalud.gd" type="Script" id=4]
+
+[node name="BarraSalud" type="CanvasLayer"]
+scale = Vector2( 50, 50 )
+transform = Transform2D( 50, 0, 0, 50, 0, 0 )
+script = ExtResource( 4 )
+
+[node name="ControlPanel" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="ControlPanel"]
+margin_left = 6.75
+margin_top = 3.125
+margin_right = 102.75
+margin_bottom = 43.125
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

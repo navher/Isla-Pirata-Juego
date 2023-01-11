@@ -1,0 +1,48 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Sprites/Environment/Key/1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Environment/Key/5.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Environment/Key/2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Environment/Key/3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Environment/Key/4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Environment/Key/7.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Environment/Key/6.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Key.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Sounds/key.mp3" type="AudioStream" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.0
+height = 8.0
+
+[node name="Key" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="KeyAnimation" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 3
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="Key" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource( 9 )
+volume_db = -20.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

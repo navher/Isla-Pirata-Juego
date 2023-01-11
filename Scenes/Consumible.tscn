@@ -1,0 +1,48 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Sprites/Consumibles/05.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Consumibles/02.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Consumibles/07.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Consumibles/06.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Consumibles/04.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Consumibles/03.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Consumibles/01.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Consumible.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Sounds/consumible.mp3" type="AudioStream" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Bottle_anim",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 0.0
+
+[node name="Consumible" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Bottle_anim"
+frame = 6
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="Consumible" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource( 9 )
+volume_db = -20.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
